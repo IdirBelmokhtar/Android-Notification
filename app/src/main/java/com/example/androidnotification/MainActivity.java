@@ -8,6 +8,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,5 +58,32 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         notificationManager.notify(2, notification);
+    }
+
+    public void sendOnChannel3(View view) {
+        String title = edit_Title.getText().toString();
+        String description = edit_Description.getText().toString();
+
+        Intent activityIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this,0,activityIntent,0);
+
+        Intent broadcastIntent = new Intent(this,NotificationReceiver.class);
+        broadcastIntent.putExtra("toastMessage", description);
+        PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_baseline_looks_3_24)
+                .setContentTitle(title)
+                .setContentText(description)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setColor(Color.RED)
+                .setContentIntent(contentIntent)
+                .setAutoCancel(true)
+                .setOnlyAlertOnce(true)
+                .addAction(R.mipmap.ic_launcher, "toast", actionIntent)
+                .build();
+        //.setVibrate()
+        notificationManager.notify(3, notification);
     }
 }
