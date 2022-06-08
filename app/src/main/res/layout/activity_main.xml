@@ -3,38 +3,107 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="14dp"
+    android:gravity="center"
+    android:layout_gravity="top|center"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edit_Title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Title" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edit_Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="send on channel 1"
-        android:onClick="sendOnChannel1"/>
+            <EditText
+                android:id="@+id/edit_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Title" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="send on channel 2"
-        android:onClick="sendOnChannel2"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="send on channel 3"
-        android:onClick="sendOnChannel3"/>
+            <EditText
+                android:id="@+id/edit_Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel1"
+                android:text="Channel 1: Simple Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel2"
+                android:text="Channel 2: Silent Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                android:onClick="sendOnChannel3"
+                android:text="Channel 3: Notification with Broadcast"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel4"
+                android:text="Channel 4: BigTextStyle Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel5"
+                android:text="Channel 5: InboxStyle Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel6"
+                android:text="Channel 6: BigPicture + largeIcon Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel7"
+                android:text="Channel 7: MediaStyle Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannel8"
+                android:text="Channel 8: Messaging Style + Direct Replay Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannelDownload"
+                android:text="Channel Download: Progress Bar Notification"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOnChannelCustom"
+                android:layout_marginTop="12sp"
+                android:text="Custom Notification"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
